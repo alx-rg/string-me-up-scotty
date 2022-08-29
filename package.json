@@ -1,0 +1,26 @@
+{
+  "name": "string-it-up",
+  "version": "1.0.2",
+  "description": "Capitalize your strings in whichever way your heart chooses",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "Error"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alx-rg/string-me-up-scotty.git"
+  },
+  "keywords": [
+    "Stringify",
+    "Capitalize",
+    "Strings",
+    "Capital",
+    "letters"
+  ],
+  "author": "alx-rg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alx-rg/string-me-up-scotty/issues"
+  },
+  "homepage": "https://github.com/alx-rg/string-me-up-scotty#readme"
+}
