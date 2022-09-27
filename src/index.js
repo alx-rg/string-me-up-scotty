@@ -50,29 +50,41 @@ console.log(removeExtraSpaces('removeExtraSpaces -       my    doggo moose IS TH
 // }
 
 // function that converts the string to lowercase and replaces the spaces with user specific symbol
-function makeCase(str, replace) {
+function makeCase(str, separator = '-') {
+  const replacing = separator[0].charCodeAt(0);
   const strLower = str.toLowerCase();
   const strTrimmed = strLower.trim();
-  const kebabed = strTrimmed.replace(/\s+/g, replace);
-  return kebabed;
+  const chars = strTrimmed.split('');
+  const filtered = chars.filter((c) => {
+    const code = c.charCodeAt(0);
+    if (code > 96 && code < 123) {
+      return true
+    } else if (code > 47 && code < 58) {
+      return true
+    } else if (code === 32 || code === replacing) {
+      return true
+    }
+    return false
+  })
+  const noSpace = removeExtraSpaces(filtered.join(''));
+  return noSpace.split(' ').join(separator);
+  // const kebabed = strTrimmed.replace(/\s+/g, replace);
+  // return kebabed;
 }
-console.log(makeCase('      makeCase Work ', '_'));
+// console.log(makeCase('      makeCase Work ', '_'));
 
 function kebobCase(str) {
   return makeCase(str, '-');
 }
-
-console.log(kebobCase('      kebobCase This is a test and who knows if itll Work'));
+console.log(kebobCase('      kebobCase!!! This-is-a_test and who knows if itll Work'));
 
 // const filtered = strTrimmed.replace(/\s+/g, '-')
 
-// snakeCase()
 function snakeCase(str) {
   return makeCase(str, '_');
 }
 
-console.log(snakeCase('      snakeCase This is a test and who knows if itll Work'));
-
+console.log(snakeCase('      snakeCase_this and - remove the other 23@@#characters!'));
 
 // camelCase()
 function camelCase(str) {
@@ -85,9 +97,40 @@ function camelCase(str) {
   return firstWord + upperWords.join('');
 }
 
-console.log(camelCase("this moose renee alexandre"));
+console.log(camelCase("This moose renee alexandre"));
 
+
+function camelCase2(str) {
+  const words = str.split(' ');
+  const camelWords = words.map((word, i) => {
+    if (i === 0) {
+      return word.toLowerCase();
+    }
+    return capitalize(word);
+  });
+  return camelWords.join('');
+}
+
+console.log(camelCase2('This is moose RENEE alexandre'))
 // shift()
+
+function shift(str) {
+  const lastLetter = str[0].toUpperCase();
+  const restOfSentence = str.slice([1]);
+  return restOfSentence + lastLetter;
+}
+
+console.log(shift('what is going on here?'));
+
 // makeHashTag(str)
+
+function makeHashTag(str) {
+  const words = str.split(' ');
+  const asc = words.sort((a,b) => b.length - a.length);
+  console.log(asc);
+}
+
+console.log(makeHashTag('this is a test moose alexandre'));
+
 // isEmpty(str)
 // add readme.md
