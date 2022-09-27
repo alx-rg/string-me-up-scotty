@@ -125,12 +125,27 @@ console.log(shift('what is going on here?'));
 // makeHashTag(str)
 
 function makeHashTag(str) {
+  const hashtags = [];
   const words = str.split(' ');
-  const asc = words.sort((a,b) => b.length - a.length);
-  console.log(asc);
+  const asc = words.sort((a, b) => b.length - a.length);
+  asc.map((word, i) => {
+    if (i < 3) {
+      hashtags.push(`#${capitalize(word)}`);
+    }
+    return '';
+  });
+  return hashtags;
 }
 
-console.log(makeHashTag('this is a test moose alexandre'));
+console.log(makeHashTag('this is a bambooozeled mooose Alexandre'));
 
 // isEmpty(str)
+
+function isEmpty(str) {
+  const whitespace = str.replace(/\s/g, '');
+  return whitespace === '';
+}
+
+console.log(isEmpty("\n\r\t")); // true
+console.log(isEmpty("abc def")); // false
 // add readme.md
