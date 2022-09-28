@@ -25,10 +25,19 @@ function capitalizeWords(str) {
 
 console.log(capitalizeWords('capitalizeWords - my dog moose is just the best'));
 
-// function that capitalized Headlines
-// function capitalizeHeadline() {
-// }
-// console.log(capitalizeHeadline('What is this whichery?'));
+function capitalizeHeadline(str) {
+  const lowerCased = str.toLowerCase();
+  const word = lowerCased.split(' ');
+  const makeSmall = ['and', 'an,', 'a', 'at', 'but', 'by', 'for', 'in', 'the', 'is'];
+  word[0] = capitalize(word[0]);
+  for (let i = 1; i < word.length; i += 1) {
+    if (!makeSmall.includes(word[i])) {
+      word[i] = capitalize(word[i]);
+    }
+  }
+  return word.join(' ');
+}
+console.log(capitalizeHeadline('is What Is this is is THE IN whichery?'));
 
 // function that removes extra spaces
 function removeExtraSpaces(str) {
@@ -42,7 +51,6 @@ function removeExtraSpaces(str) {
 }
 
 console.log(removeExtraSpaces('removeExtraSpaces -       my    doggo moose IS THE BOMB    jigidy     '));
-
 
 // String.prototype.capitalize = function() {
 //   console.log('Whats this:', this)
@@ -76,7 +84,7 @@ function makeCase(str, separator = '-') {
 function kebobCase(str) {
   return makeCase(str, '-');
 }
-console.log(kebobCase('      kebobCase!!! This-is-a_test and who knows if itll Work'));
+console.log(kebobCase('      kebobCase!!! This-is-test and who knows if itll WORk'));
 
 // const filtered = strTrimmed.replace(/\s+/g, '-')
 
@@ -87,21 +95,10 @@ function snakeCase(str) {
 console.log(snakeCase('      snakeCase_this and - remove the other 23@@#characters!'));
 
 // camelCase()
+
 function camelCase(str) {
-  const firstLetter = str[0].toLowerCase();
-  const restOfSentence = str.slice([1]);
-  const words = restOfSentence.split(' ');
-  const firstWord = firstLetter + words[0];
-  const theSentence = words.slice([1]);
-  const upperWords = theSentence.map((word) => capitalize(word));
-  return firstWord + upperWords.join('');
-}
-
-console.log(camelCase("This moose renee alexandre"));
-
-
-function camelCase2(str) {
-  const words = str.split(' ');
+  const lowercase = str.toLowerCase()
+  const words = lowercase.split(' ');
   const camelWords = words.map((word, i) => {
     if (i === 0) {
       return word.toLowerCase();
@@ -111,16 +108,16 @@ function camelCase2(str) {
   return camelWords.join('');
 }
 
-console.log(camelCase2('This is moose RENEE alexandre'))
+console.log(camelCase('This is moose BOBBY alex MAXIMUSIMUS'));
 // shift()
 
-function shift(str) {
-  const lastLetter = str[0].toUpperCase();
-  const restOfSentence = str.slice([1]);
-  return restOfSentence + lastLetter;
+function shift(str, position = 1) {
+  const startSentence = str.slice(position);
+  const endSentence = str.slice(0, position);
+  return startSentence + endSentence;
 }
 
-console.log(shift('what is going on here?'));
+console.log(shift('what is going on here?', 2));
 
 // makeHashTag(str)
 
@@ -137,7 +134,8 @@ function makeHashTag(str) {
   return hashtags;
 }
 
-console.log(makeHashTag('this is a bambooozeled mooose Alexandre'));
+
+console.log(makeHashTag('this is a bambooozeled mooose MAXIMILIUS'));
 
 // isEmpty(str)
 
@@ -146,6 +144,42 @@ function isEmpty(str) {
   return whitespace === '';
 }
 
-console.log(isEmpty("\n\r\t")); // true
-console.log(isEmpty("abc def")); // false
+console.log(isEmpty('    \n\r\t     ')); // true
+console.log(isEmpty('abc def')); // false
 // add readme.md
+
+module.exports = {
+  capitalize,
+  allCaps,
+  capitalizeWords,
+  isEmpty,
+  capitalizeHeadline,
+  removeExtraSpaces,
+  kebobCase,
+  snakeCase,
+  camelCase,
+  shift,
+  makeHashTag,
+};
+
+// # This package helps you CaPItaLiZE your words
+
+// ### Creating an npm package and publishing said package
+
+// Publishing an update, as you have to update the version number!
+
+// Why? Getting a deeper understanding of npm and it's ecosystem + contributing to open source.
+
+// ### Let's talk about SEMVer
+
+// The first digit is the MAJOR version. 
+// I update the '1' 1.0.0 if the updates are making the code incompatible with the previous version.
+
+// The second digit changes if the code is BACKWARDS compatible.
+
+// The third number is called a patch when you make bug fixes and improvements.
+
+// SEMVer = Semantic Versioning
+
+// If I want to publish:
+// npm publish (but make sure to update the version number appropriately)
