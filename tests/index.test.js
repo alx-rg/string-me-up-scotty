@@ -60,9 +60,11 @@ test('makeHashTag - function tests', () => {
   expect(index.makeHashTag('Jack and Jill')).toStrictEqual(["#Jack", "#Jill", "#And"])
 })
 
-// (camelCase('This is moose BOBBY alex MAXIMUSIMUS'));
-// (shift('what is going on here?', 2));
-// (makeHashTag('this is a bambooozeled mooose MAXIMILIUS'));
+test('isEmpty - function tests', () => {
+  expect(index.isEmpty('    ')).toBe(true)
+  expect(index.isEmpty('')).toBe(true)
+  expect(index.isEmpty('abc def')).toBe(false)
+})
 // (isEmpty('    \n\r\t     ')); // true
 // (isEmpty('abc def')); // false
 
