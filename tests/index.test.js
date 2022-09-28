@@ -42,13 +42,23 @@ test('snakeCase - function tests', () => {
   expect(index.snakeCase('swim swim in the DoGGO pool', '_')).toBe('swim_swim_in_the_doggo_pool')
 })
 
-test('cameCase - function tests', () => {
+test('camelCase - function tests', () => {
   expect(index.camelCase('When he stops he sleeps')).toBe('whenHeStopsHeSleeps')
   expect(index.camelCase('   DELICIOUS wild flowers')).toBe('deliciousWildFlowers')
   expect(index.camelCase('    Picture ALMbums Ar the best')).toBe('pictureAlmbumsArTheBest')
 })
 
+test('shift - function tests', () => {
+  expect(index.shift('how is the weather?')).toBe('ow is the weather?h')
+  expect(index.shift('YOU are beautiful', 4)).toBe('are beautifulYOU ')
+  expect(index.shift('filiBUSTERin', 4)).toBe('BUSTERinfili')
+})
 
+test('makeHashTag - function tests', () => {
+  expect(index.makeHashTag('This is moose BOBBY alex MAXIMUSIMUS')).toStrictEqual(["#Maximusimus", "#Moose", "#Bobby"])
+  expect(index.makeHashTag('bambooozeled mooose MAXIMILIUS')).toStrictEqual(["#Bambooozeled", "#Maximilius", "#Mooose"])
+  expect(index.makeHashTag('Jack and Jill')).toStrictEqual(["#Jack", "#Jill", "#And"])
+})
 
 // (camelCase('This is moose BOBBY alex MAXIMUSIMUS'));
 // (shift('what is going on here?', 2));

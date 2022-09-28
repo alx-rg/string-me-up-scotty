@@ -98,7 +98,8 @@ function shift(str, position = 1) {
 // makeHashTag(str)
 function makeHashTag(str) {
   const hashtags = [];
-  const words = str.split(' ');
+  const lowerCased = str.toLowerCase()
+  const words = lowerCased.split(' ');
   const asc = words.sort((a, b) => b.length - a.length);
   asc.map((word, i) => {
     if (i < 3) {
