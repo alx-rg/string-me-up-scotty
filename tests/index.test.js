@@ -24,10 +24,24 @@ test('capitalizedHeadline - function tests', () => {
   expect(index.capitalizeHeadline('so he rode a dolphin home')).toBe('So He Rode a Dolphin Home')
 })
 
-// (capitalizeHeadline('is What Is this is is THE IN whichery?'));
-// (removeExtraSpaces('removeExtraSpaces -       my    doggo moose IS THE BOMB    jigidy     '));
-// (makeCase('      makeCase Work ', '_'));
-// (kebobCase('      kebobCase!!! This-is-test and who knows if itll WORk'));
+test('removeExtraSpaces - function tests', () => {
+  expect(index.removeExtraSpaces('    what   is   moose    cheewing?   ')).toBe('what is moose cheewing?')
+  expect(index.removeExtraSpaces('    whats up doc   ')).toBe('whats up doc')
+  expect(index.removeExtraSpaces('       doggo')).toBe('doggo')
+})
+
+test('kebobCase - function tests', () => {
+  expect(index.kebobCase('I like chicken kebobs', '-')).toBe('i-like-chicken-kebobs')
+  expect(index.kebobCase('Moose IS JUST THE BEST')).toBe('moose-is-just-the-best')
+  expect(index.kebobCase('   and he     eats his     veggies!')).toBe('and-he-eats-his-veggies')
+})
+
+test('snakeCase - function tests', () => {
+  expect(index.snakeCase('Moose likes to eat salmon', '_')).toBe('moose_likes_to_eat_salmon')
+  expect(index.snakeCase('    can we     go play    in the park?', '_')).toBe('can_we_go_play_in_the_park')
+  expect(index.snakeCase('swim swim in the DoGGO pool', '_')).toBe('swim_swim_in_the_doggo_pool')
+})
+
 // (snakeCase('      snakeCase_this and - remove the other 23@@#characters!'));
 // (camelCase('This is moose BOBBY alex MAXIMUSIMUS'));
 // (shift('what is going on here?', 2));
