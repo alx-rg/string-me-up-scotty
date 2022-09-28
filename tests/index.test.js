@@ -65,7 +65,3 @@ test('isEmpty - function tests', () => {
   expect(index.isEmpty('')).toBe(true)
   expect(index.isEmpty('abc def')).toBe(false)
 })
-// (isEmpty('    \n\r\t     ')); // true
-// (isEmpty('abc def')); // false
-
-
