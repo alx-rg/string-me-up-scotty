@@ -3,7 +3,7 @@
 
 function capitalize(str: string): string {
   const firstLetter = str[0].toUpperCase();
-  const restOfSentence = str.slice([1]);
+  const restOfSentence : string = str.slice(1);
   return firstLetter + restOfSentence;
 }
 
@@ -36,7 +36,7 @@ function capitalizeHeadline(str: string): string {
 function removeExtraSpaces(str: string): string {
   // const strTrimmed = str.trim();
   const chars = str.split(' ');
-  function removeSpaces(char) {
+  function removeSpaces(char: any): any {
     return (char !== '');
   }
   const filtered = chars.filter(removeSpaces);
@@ -97,7 +97,7 @@ function shift(str: string, position = 1): string {
 
 // makeHashTag(str)
 function makeHashTag(str: string): string[] {
-  const hashtags = [];
+  const hashtags: string[] = [];
   const lowerCased = str.toLowerCase()
   const words = lowerCased.split(' ');
   const asc = words.sort((a, b) => b.length - a.length);
