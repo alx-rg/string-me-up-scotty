@@ -76,7 +76,8 @@ function snakeCase(str) {
 
 // camelCase()
 function camelCase(str) {
-  const lowercase = str.toLowerCase()
+  const strTrim = str.trim()
+  const lowercase = strTrim.toLowerCase()
   const words = lowercase.split(' ');
   const camelWords = words.map((word, i) => {
     if (i === 0) {

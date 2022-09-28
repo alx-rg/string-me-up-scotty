@@ -42,7 +42,14 @@ test('snakeCase - function tests', () => {
   expect(index.snakeCase('swim swim in the DoGGO pool', '_')).toBe('swim_swim_in_the_doggo_pool')
 })
 
-// (snakeCase('      snakeCase_this and - remove the other 23@@#characters!'));
+test('cameCase - function tests', () => {
+  expect(index.camelCase('When he stops he sleeps')).toBe('whenHeStopsHeSleeps')
+  expect(index.camelCase('   DELICIOUS wild flowers')).toBe('deliciousWildFlowers')
+  expect(index.camelCase('    Picture ALMbums Ar the best')).toBe('pictureAlmbumsArTheBest')
+})
+
+
+
 // (camelCase('This is moose BOBBY alex MAXIMUSIMUS'));
 // (shift('what is going on here?', 2));
 // (makeHashTag('this is a bambooozeled mooose MAXIMILIUS'));
