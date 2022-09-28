@@ -7,14 +7,10 @@ function capitalize(str) {
   return firstLetter + restOfSentence;
 }
 
-console.log(capitalize('capitalize - hellllo'));
-
 // function that makes all characters uppercase
 function allCaps(str) {
   return str.toUpperCase();
 }
-
-console.log(allCaps('allCaps - what is this foo bar'));
 
 // function that capitalizes the first letter of each word in a string
 function capitalizeWords(str) {
@@ -22,8 +18,6 @@ function capitalizeWords(str) {
   const upperWords = words.map((word) => capitalize(word));
   return upperWords.join(' ');
 }
-
-console.log(capitalizeWords('capitalizeWords - my dog moose is just the best'));
 
 function capitalizeHeadline(str) {
   const lowerCased = str.toLowerCase();
@@ -37,7 +31,6 @@ function capitalizeHeadline(str) {
   }
   return word.join(' ');
 }
-console.log(capitalizeHeadline('is What Is this is is THE IN whichery?'));
 
 // function that removes extra spaces
 function removeExtraSpaces(str) {
@@ -49,13 +42,6 @@ function removeExtraSpaces(str) {
   const filtered = chars.filter(removeSpaces);
   return filtered.join(' ');
 }
-
-console.log(removeExtraSpaces('removeExtraSpaces -       my    doggo moose IS THE BOMB    jigidy     '));
-
-// String.prototype.capitalize = function() {
-//   console.log('Whats this:', this)
-//   return capitalize(this)
-// }
 
 // function that converts the string to lowercase and replaces the spaces with user specific symbol
 function makeCase(str, separator = '-') {
@@ -76,26 +62,19 @@ function makeCase(str, separator = '-') {
   })
   const noSpace = removeExtraSpaces(filtered.join(''));
   return noSpace.split(' ').join(separator);
-  // const kebabed = strTrimmed.replace(/\s+/g, replace);
-  // return kebabed;
 }
-// console.log(makeCase('      makeCase Work ', '_'));
 
+//kebobCase
 function kebobCase(str) {
   return makeCase(str, '-');
 }
-console.log(kebobCase('      kebobCase!!! This-is-test and who knows if itll WORk'));
 
-// const filtered = strTrimmed.replace(/\s+/g, '-')
-
+// snakeCase
 function snakeCase(str) {
   return makeCase(str, '_');
 }
 
-console.log(snakeCase('      snakeCase_this and - remove the other 23@@#characters!'));
-
 // camelCase()
-
 function camelCase(str) {
   const lowercase = str.toLowerCase()
   const words = lowercase.split(' ');
@@ -108,19 +87,14 @@ function camelCase(str) {
   return camelWords.join('');
 }
 
-console.log(camelCase('This is moose BOBBY alex MAXIMUSIMUS'));
 // shift()
-
 function shift(str, position = 1) {
   const startSentence = str.slice(position);
   const endSentence = str.slice(0, position);
   return startSentence + endSentence;
 }
 
-console.log(shift('what is going on here?', 2));
-
 // makeHashTag(str)
-
 function makeHashTag(str) {
   const hashtags = [];
   const words = str.split(' ');
@@ -134,19 +108,11 @@ function makeHashTag(str) {
   return hashtags;
 }
 
-
-console.log(makeHashTag('this is a bambooozeled mooose MAXIMILIUS'));
-
 // isEmpty(str)
-
 function isEmpty(str) {
   const whitespace = str.replace(/\s/g, '');
   return whitespace === '';
 }
-
-console.log(isEmpty('    \n\r\t     ')); // true
-console.log(isEmpty('abc def')); // false
-// add readme.md
 
 module.exports = {
   capitalize,
